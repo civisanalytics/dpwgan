@@ -1,0 +1,15 @@
+dist: xenial
+notifications:
+    email: false
+language: python
+python:
+    - "3.5"
+    - "3.6"
+    - "3.7"
+install:
+    - pip install --upgrade pip setuptools
+    - pip install -r requirements.txt && pip install -r dev-requirements.txt
+    - pip install -e .
+script:
+    - flake8 dpwgan
+    - pytest -vv dpwgan
